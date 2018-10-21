@@ -1,27 +1,33 @@
 // Created by: Peter Zhu
-// Created on: May 2018
-// This program about find max and min values 
+// Created on: Oct 2018
+// This program about find max and min number is the range of 100
 
 import Foundation
+
 var array = [Int]()
-for i in 1 ... 10 {
-    let random : UInt32 = arc4random_uniform(100)
-    array.append(Int(random) )
-}
-var minValue = array[0];
-var maxValue = array[0];
 
-for min in 0...array.count-1 {
-    if array[min] < minValue {
-        minValue = array[min]
-    }
+for number in 0 ... 9 {
+    let random = Int(drand48()*99.0+1)
+    array.append(Int(random))
 }
+print ("\(array)")
 
-for max in 0...array.count-1{
-    if array[max] > maxValue {
-        maxValue = array[max]
+var max = array[0]
+var min = array[0]
+
+var counter = 1
+
+while counter < array.count {
+    
+    if array[counter] > max {
+        max = array[counter]
     }
+    
+    if array[counter] < min {
+        min = array[counter]
+    }
+    counter += 1
+    
 }
-print("The array is =\(array)")
-print("The max value is =\(maxValue)")
-print("The min value is =\(minValue)")
+print("The max value is \(max)")
+print("The min value is \(min)")
